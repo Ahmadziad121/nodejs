@@ -36,6 +36,23 @@ app.get('/comulativ/:num',function(req,res) {
     res.json(cum)
 
 })
+app.get('/string/:string',function(req,res) {
+ 
+    const string =req.params.string
+    const result =str1(string)
+    res.json( result)
+
+})
+function str1(str){
+
+    const len =str.length
+    for(let i=0;i<len;i++)
+    {
+        if (str[i] !== str[len-1-i]){
+            return false
+        }
+    }return true
+}
 
 
 var server =app.listen(1000,function()
